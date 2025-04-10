@@ -1,155 +1,72 @@
-/* style.css - Giao diện MedDental mới */
+/* style.css - Full MedDental Styling */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #fdfdfd;
-  color: #222;
-  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  @apply bg-white text-gray-900;
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
+header img {
+  @apply h-12;
 }
 
-.header {
-  background: #004a94;
-  padding: 16px 0;
+section h2 {
+  @apply text-xl sm:text-2xl font-bold text-blue-900;
 }
 
-.logo img {
-  height: 48px;
+ul li {
+  @apply list-disc list-inside;
 }
 
-.nav {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 10px;
+form input,
+form textarea {
+  @apply w-full p-3 border rounded;
 }
 
-.nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
+form button {
+  @apply bg-blue-900 text-white px-6 py-3 rounded hover:bg-blue-800;
 }
 
-.nav a:hover {
-  text-decoration: underline;
+footer {
+  @apply bg-blue-900 text-white text-center py-6 text-sm;
 }
 
-.hero {
-  background: #e6f0ff;
-  padding: 60px 0;
-  text-align: center;
+/* Popup thông báo */
+#popup {
+  @apply mt-4 text-green-600 font-semibold text-center;
+  transition: opacity 0.3s ease;
 }
 
-.hero h1 {
-  font-size: 36px;
-  color: #004a94;
+/* Chatbox popup */
+#chatbox {
+  animation: fadeInUp 0.3s ease;
+  @apply fixed bottom-4 right-4 w-80 max-w-full bg-white border rounded-lg shadow-lg flex-col overflow-hidden;
 }
 
-.hero p {
-  font-size: 20px;
-  color: #333;
+#chatbox input {
+  @apply w-full p-2 border rounded;
 }
 
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 30px;
+#chatbox .text-left,
+#chatbox .text-right {
+  @apply my-1;
 }
 
-.intro, .branches, .services, .contact {
-  padding: 60px 0;
-}
-
-.intro h2, .branches h2, .services h2, .contact h2 {
-  text-align: center;
-  color: #004a94;
-  margin-bottom: 20px;
-}
-
-.branches ul {
-  list-style: none;
-  padding: 0;
-  max-width: 700px;
-  margin: auto;
-}
-
-.branches li {
-  background: #f0f6ff;
-  margin: 10px 0;
-  padding: 12px 18px;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.service-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  font-weight: bold;
-  color: #004a94;
-}
-
-.contact form {
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact input, .contact textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-.contact button {
-  padding: 14px;
-  background: #004a94;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.contact button:hover {
-  background: #003c7a;
-}
-
-.footer {
-  background: #004a94;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
+/* FadeInUp keyframe */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  .hero h1 {
-    font-size: 28px;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  .hero p {
-    font-size: 16px;
-  }
+}
+
+button[onclick*="toggleChat"] {
+  @apply fixed bottom-4 right-4 bg-blue-900 text-white px-4 py-2 rounded-full shadow-lg;
 }
