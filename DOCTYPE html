@@ -43,7 +43,7 @@
   </section>
 
   <div class="chat-container">
-    <div class="chat-header">Bác sĩ AI - MedDental</div>
+    <div class="chat-header">🦷 Bác sĩ MedDental</div>
     <div class="chat-box" id="chat-box">
       <div class="bot-msg">
         <img src="/static/avatar.png" class="avatar" />
