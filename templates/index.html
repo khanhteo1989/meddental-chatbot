@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>MedDental Chatbot</title>
-  <link rel="stylesheet" href="/static/style.css" />
+  <meta charset="UTF-8">
+  <title>MedDental - Hệ thống nha khoa</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
 </head>
 <body>
+  <header class="header">
+    <div class="logo"><img src="/static/logo.png" alt="Logo MedDental"></div>
+    <nav class="menu">
+      <a href="#">Trang chủ</a>
+      <a href="#gioithieu">Giới thiệu</a>
+      <a href="#coso">Cơ sở</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <img src="/static/banner.jpg" alt="MedDental banner" />
+    <div class="hotline-overlay">
+      <strong>Liên hệ: 0814 419 333</strong>
+    </div>
+  </section>
+
+  <section class="intro" id="gioithieu">
+    <h1>Chuyên gia chăm sóc răng miệng tận tâm</h1>
+    <p>Hệ thống nha khoa MedDental trực thuộc Tập đoàn Y tế MEDLATEC - uy tín và chuyên nghiệp, với đội ngũ bác sĩ giàu kinh nghiệm và hệ thống trang thiết bị hiện đại.</p>
+  </section>
+
+  <section class="branches" id="coso">
+    <h2>Các cơ sở MedDental</h2>
+    <ul>
+      <li>CS1: 87 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội</li>
+      <li>CS2: 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội</li>
+      <li>CS3: 42 - 44 Nghĩa Dũng, Ba Đình, Hà Nội</li>
+      <li>CS4: 66 Nghĩa Dũng, Ba Đình, Hà Nội</li>
+      <li>CS5: 99 Trích Sài, Tây Hồ, Hà Nội</li>
+      <li>CS6: A9-02 KĐT Monbay, Hạ Long, Quảng Ninh</li>
+      <li>CS7: KĐT Hà Phong, Tiền Phong, Mê Linh, Hà Nội</li>
+    </ul>
+  </section>
+
   <div class="chat-container">
     <div class="chat-header">🦷 Bác sĩ MedDental</div>
     <div class="chat-box" id="chat-box">
@@ -21,7 +56,6 @@
     </div>
   </div>
 
-  <!-- Popup đặt lịch -->
   <div id="booking-popup" class="popup hidden">
     <div class="popup-content">
       <h3>📅 Đặt lịch khám MedDental</h3>
@@ -33,20 +67,21 @@
         <input type="time" name="gio_goilai" required />
         <button type="submit">✅ Gửi đặt lịch</button>
       </form>
-      <p><a href="https://zalo.me/0814419333" target="_blank">📲 Chat CSKH qua Zalo</a></p>
       <button onclick="closePopup()">❌ Đóng</button>
     </div>
   </div>
 
-  <!-- Hiệu ứng toast và Lottie -->
   <div id="success-toast" class="toast hidden">🎉 Đặt lịch thành công!</div>
   <div id="lottie-success" class="lottie-container hidden"></div>
   <audio id="pling-sound" src="/static/pling.mp3" preload="auto"></audio>
 
-  <!-- Nút Zalo nổi -->
   <a href="https://zalo.me/0814419333" target="_blank" id="zalo-button">
-    <img src="/static/zalo-icon.png" alt="Zalo" />
+    <img src="/static/zalo-icon.png" alt="Zalo">
   </a>
+
+  <footer class="footer">
+    <p>📞 0814 419 333 • 🌐 www.meddental.vn • 📍 Liên hệ qua <a href="https://zalo.me/0814419333">Zalo CSKH</a></p>
+  </footer>
 
   <script src="/static/script.js"></script>
 </body>
