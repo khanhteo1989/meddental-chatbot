@@ -82,4 +82,3 @@ function showSuccessToast(message) {
   toast.classList.remove("hidden");
   setTimeout(() => toast.classList.add("hidden"), 4000);
 }
-
