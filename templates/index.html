@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>MedDental Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">🦷 Bác sĩ MedDental</div>
+    <div class="chat-box" id="chat-box">
+      <div class="bot-msg">
+        <img src="/static/avatar.png" class="avatar" />
+        <div class="msg">Chào bạn! Tôi là bác sĩ nha khoa. Bạn cần tư vấn gì hôm nay?</div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Nhập câu hỏi..." />
+      <button onclick="sendMessage()">Gửi</button>
+    </div>
+  </div>
+
+  <!-- Popup đặt lịch -->
+  <div id="booking-popup" class="popup hidden">
+    <div class="popup-content">
+      <h3>📅 Đặt lịch khám MedDental</h3>
+      <form id="booking-form">
+        <input type="text" name="ten" placeholder="Họ và tên" required />
+        <input type="number" name="tuoi" placeholder="Tuổi" required />
+        <input type="text" name="benhly" placeholder="Triệu chứng / Bệnh lý" required />
+        <input type="text" name="coso" placeholder="Cơ sở muốn đến" required />
+        <input type="time" name="gio_goilai" required />
+        <button type="submit">✅ Gửi đặt lịch</button>
+      </form>
+      <p><a href="https://zalo.me/0814419333" target="_blank">📲 Chat CSKH qua Zalo</a></p>
+      <button onclick="closePopup()">❌ Đóng</button>
+    </div>
+  </div>
+
+  <!-- Hiệu ứng toast và Lottie -->
+  <div id="success-toast" class="toast hidden">🎉 Đặt lịch thành công!</div>
+  <div id="lottie-success" class="lottie-container hidden"></div>
+  <audio id="pling-sound" src="/static/pling.mp3" preload="auto"></audio>
+
+  <!-- Nút Zalo nổi -->
+  <a href="https://zalo.me/0814419333" target="_blank" id="zalo-button">
+    <img src="/static/zalo-icon.png" alt="Zalo" />
+  </a>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
