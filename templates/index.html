@@ -3,51 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedDental | Hệ thống Nha khoa hiện đại</title>
-  <link rel="stylesheet" href="/static/css/style.css">
+  <title>MedDental | Nha khoa hiện đại</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#004a94',
+            secondary: '#e6f0ff',
+          },
+        }
+      }
+    }
+  </script>
 </head>
-<body>
+<body class="bg-white text-gray-900">
   <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <img src="/static/images/logo.png" alt="MedDental Logo">
-      </div>
-      <nav class="nav">
-        <a href="#gioithieu">Giới thiệu</a>
-        <a href="#coso">Hệ thống cơ sở</a>
-        <a href="#dichvu">Dịch vụ</a>
-        <a href="#lienhe">Liên hệ</a>
+  <header class="bg-primary text-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <img src="/static/images/logo.png" alt="Logo MedDental" class="h-12">
+      <nav class="space-x-6 hidden sm:block">
+        <a href="#gioithieu" class="hover:underline">Giới thiệu</a>
+        <a href="#coso" class="hover:underline">Cơ sở</a>
+        <a href="#dichvu" class="hover:underline">Dịch vụ</a>
+        <a href="#lienhe" class="hover:underline">Liên hệ</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-text">
-        <h1>Nha khoa MedDental</h1>
-        <p>Chăm sóc răng miệng tận tâm - Công nghệ hiện đại</p>
-      </div>
-      <div class="hero-image">
-        <img src="/static/images/banner.jpg" alt="Bác sĩ nha khoa MedDental">
-      </div>
-    </div>
+  <!-- Hero -->
+  <section class="bg-secondary py-12 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-primary">Nha khoa MedDental</h1>
+    <p class="text-gray-700 mt-2 text-lg">Chăm sóc răng miệng tận tâm - Công nghệ hiện đại</p>
+    <img src="/static/images/banner.jpg" alt="Banner" class="mx-auto mt-6 rounded-lg shadow-lg w-full max-w-4xl">
   </section>
 
   <!-- Giới thiệu -->
-  <section class="intro" id="gioithieu">
-    <div class="container">
-      <h2>Giới thiệu về MedDental</h2>
-      <p>MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC. Chúng tôi cung cấp dịch vụ chăm sóc răng miệng toàn diện với đội ngũ bác sĩ nhiều năm kinh nghiệm và thiết bị hiện đại hàng đầu.</p>
+  <section id="gioithieu" class="py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-primary">Giới thiệu về MedDental</h2>
+      <p class="mt-4 text-gray-600">MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC. Chúng tôi cung cấp dịch vụ chăm sóc răng miệng toàn diện với đội ngũ bác sĩ nhiều năm kinh nghiệm và thiết bị hiện đại hàng đầu.</p>
     </div>
   </section>
 
-  <!-- Hệ thống cơ sở -->
-  <section class="branches" id="coso">
-    <div class="container">
-      <h2>Hệ thống cơ sở</h2>
-      <ul>
+  <!-- Cơ sở -->
+  <section id="coso" class="py-12 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-center text-primary">Hệ thống cơ sở</h2>
+      <ul class="mt-6 space-y-2 text-gray-700">
         <li>CS1: 87 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội</li>
         <li>CS2: 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội</li>
         <li>CS3: 42 - 44 Nghĩa Dũng, Ba Đình, Hà Nội</li>
@@ -60,40 +65,74 @@
   </section>
 
   <!-- Dịch vụ -->
-  <section class="services" id="dichvu">
-    <div class="container">
-      <h2>Dịch vụ nổi bật</h2>
-      <div class="service-grid">
-        <div class="service-card">Tư vấn & khám tổng quát</div>
-        <div class="service-card">Niềng răng - Chỉnh nha</div>
-        <div class="service-card">Trồng răng Implant</div>
-        <div class="service-card">Tẩy trắng răng công nghệ</div>
-        <div class="service-card">Lấy cao răng & vệ sinh răng</div>
-        <div class="service-card">Điều trị tủy, sâu răng</div>
+  <section id="dichvu" class="py-12 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold text-center text-primary">Dịch vụ nổi bật</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+        <div class="p-4 bg-white border rounded-lg shadow text-center">Tư vấn & khám tổng quát</div>
+        <div class="p-4 bg-white border rounded-lg shadow text-center">Niềng răng - Chỉnh nha</div>
+        <div class="p-4 bg-white border rounded-lg shadow text-center">Trồng răng Implant</div>
+        <div class="p-4 bg-white border rounded-lg shadow text-center">Tẩy trắng răng công nghệ</div>
+        <div class="p-4 bg-white border rounded-lg shadow text-center">Lấy cao răng & vệ sinh răng</div>
+        <div class="p-4 bg-white border rounded-lg shadow text-center">Điều trị tủy, sâu răng</div>
       </div>
     </div>
   </section>
 
   <!-- Liên hệ -->
-  <section class="contact" id="lienhe">
-    <div class="container">
-      <h2>Liên hệ với chúng tôi</h2>
-      <form>
-        <input type="text" placeholder="Họ và tên" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Nội dung..." required></textarea>
-        <button type="submit">Gửi thông tin</button>
+  <section id="lienhe" class="py-12 px-4 bg-secondary">
+    <div class="max-w-lg mx-auto">
+      <h2 class="text-2xl font-bold text-center text-primary">Liên hệ với chúng tôi</h2>
+      <form class="mt-6 space-y-4">
+        <input type="text" placeholder="Họ và tên" class="w-full p-3 border rounded">
+        <input type="email" placeholder="Email" class="w-full p-3 border rounded">
+        <textarea placeholder="Nội dung..." rows="4" class="w-full p-3 border rounded"></textarea>
+        <button class="bg-primary text-white px-6 py-3 rounded hover:bg-blue-800 w-full">Gửi thông tin</button>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 MedDental. All rights reserved.</p>
+  <!-- Chatbot AI -->
+  <div id="chatbox" class="fixed bottom-4 right-4 w-80 max-w-full bg-white border rounded-lg shadow-lg hidden flex-col overflow-hidden">
+    <div class="bg-primary text-white px-4 py-2 font-bold flex justify-between items-center">
+      <span>Bác sĩ AI</span>
+      <button onclick="toggleChat()">×</button>
     </div>
+    <div class="h-64 overflow-y-auto p-4 text-sm" id="chat-content">
+      <div class="text-gray-600">Chào bạn! Tôi là bác sĩ nha khoa AI. Bạn cần hỗ trợ gì hôm nay?</div>
+    </div>
+    <div class="p-2 border-t">
+      <input id="chat-input" type="text" placeholder="Nhập câu hỏi..." class="w-full p-2 border rounded" onkeypress="if(event.key==='Enter'){sendChat()}"/>
+    </div>
+  </div>
+  <button onclick="toggleChat()" class="fixed bottom-4 right-4 bg-primary text-white px-4 py-2 rounded-full shadow-lg">Chat</button>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-6">
+    <p>&copy; 2025 MedDental. Liên Hệ Đặt Lịch 081.441.9333.</p>
   </footer>
 
-  <script src="/static/js/script.js"></script>
+  <script>
+    function toggleChat() {
+      document.getElementById('chatbox').classList.toggle('hidden');
+    }
+
+    async function sendChat() {
+      const input = document.getElementById("chat-input");
+      const content = document.getElementById("chat-content");
+      const userText = input.value.trim();
+      if (!userText) return;
+      content.innerHTML += `<div class='text-right text-blue-600 my-1'>${userText}</div>`;
+      input.value = "";
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText })
+      });
+      const data = await res.json();
+      content.innerHTML += `<div class='text-left text-gray-600 my-1'>${data.reply}</div>`;
+      content.scrollTop = content.scrollHeight;
+    }
+  </script>
 </body>
 </html>
