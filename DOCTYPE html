@@ -2,140 +2,35 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Hệ thống nha khoa MedDental</title>
+  <title>MedDental - Hệ thống nha khoa</title>
   <link rel="stylesheet" href="/static/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #fdfdfd;
-      color: #222;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background: #004a94;
-      color: white;
-    }
-    .header img {
-      height: 50px;
-    }
-    .menu a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .menu a:hover {
-      text-decoration: underline;
-    }
-    .banner {
-      position: relative;
-      width: 100%;
-    }
-    .banner img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom: 2px solid #ddd;
-    }
-    .hotline-overlay {
-      position: absolute;
-      bottom: 20px;
-      right: 30px;
-      background: rgba(255,255,255,0.85);
-      padding: 10px 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      font-weight: bold;
-      color: #004a94;
-      font-size: 18px;
-    }
-    .intro {
-      text-align: center;
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .intro h1 {
-      font-size: 28px;
-      color: #004a94;
-      margin-bottom: 10px;
-    }
-    .intro p {
-      font-size: 18px;
-      color: #333;
-    }
-    .branches {
-      background: #f0f6ff;
-      padding: 40px 20px;
-    }
-    .branches h2 {
-      text-align: center;
-      color: #004a94;
-    }
-    .branches ul {
-      list-style: none;
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 0;
-    }
-    .branches li {
-      background: white;
-      margin: 8px 0;
-      padding: 12px 20px;
-      border-radius: 8px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    }
-    .footer {
-      text-align: center;
-      background: #004a94;
-      color: white;
-      padding: 20px;
-      font-size: 14px;
-    }
-    .footer a {
-      color: #ffdd57;
-      text-decoration: none;
-    }
-  </style>
+  <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
-    <div class="logo">
-      <img src="/static/logo.png" alt="MedDental logo" />
-    </div>
+    <div class="logo"><img src="/static/logo.png" alt="Logo MedDental"></div>
     <nav class="menu">
       <a href="#">Trang chủ</a>
-      <a href="#dichvu">Dịch vụ</a>
-      <a href="#lienhe">Liên hệ</a>
+      <a href="#gioithieu">Giới thiệu</a>
+      <a href="#coso">Cơ sở</a>
     </nav>
   </header>
 
-  <!-- Banner với số mới -->
   <section class="banner">
-    <img src="/static/banner.jpg" alt="Banner MedDental" />
+    <img src="/static/banner.jpg" alt="MedDental banner" />
     <div class="hotline-overlay">
-      <p>📞 Liên hệ ngay: <strong>0814 419 333</strong></p>
+      <strong>Liên hệ: 0814 419 333</strong>
     </div>
   </section>
 
-  <!-- Giới thiệu -->
-  <section class="intro">
-    <h1>Chăm sóc răng miệng tận tâm</h1>
-    <p>MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC, với đội ngũ bác sĩ giàu kinh nghiệm và công nghệ hiện đại nhất hiện nay.</p>
+  <section class="intro" id="gioithieu">
+    <h1>Chuyên gia chăm sóc răng miệng tận tâm</h1>
+    <p>Hệ thống nha khoa MedDental trực thuộc Tập đoàn Y tế MEDLATEC - uy tín và chuyên nghiệp, với đội ngũ bác sĩ giàu kinh nghiệm và hệ thống trang thiết bị hiện đại.</p>
   </section>
 
-  <!-- Chi nhánh -->
   <section class="branches" id="coso">
-    <h2>Hệ thống cơ sở</h2>
+    <h2>Các cơ sở MedDental</h2>
     <ul>
       <li>CS1: 87 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội</li>
       <li>CS2: 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội</li>
@@ -147,9 +42,47 @@
     </ul>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer" id="lienhe">
-    <p>📞 0814 419 333 • 📍 www.meddental.vn • 📲 <a href="https://zalo.me/0814419333" target="_blank">Zalo CSKH</a></p>
+  <div class="chat-container">
+    <div class="chat-header">Bác sĩ AI - MedDental</div>
+    <div class="chat-box" id="chat-box">
+      <div class="bot-msg">
+        <img src="/static/avatar.png" class="avatar" />
+        <div class="msg">Chào bạn! Tôi là bác sĩ nha khoa. Bạn cần tư vấn gì hôm nay?</div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Nhập câu hỏi..." />
+      <button onclick="sendMessage()">Gửi</button>
+    </div>
+  </div>
+
+  <div id="booking-popup" class="popup hidden">
+    <div class="popup-content">
+      <h3>📅 Đặt lịch khám MedDental</h3>
+      <form id="booking-form">
+        <input type="text" name="ten" placeholder="Họ và tên" required />
+        <input type="number" name="tuoi" placeholder="Tuổi" required />
+        <input type="text" name="benhly" placeholder="Triệu chứng / Bệnh lý" required />
+        <input type="text" name="coso" placeholder="Cơ sở muốn đến" required />
+        <input type="time" name="gio_goilai" required />
+        <button type="submit">✅ Gửi đặt lịch</button>
+      </form>
+      <button onclick="closePopup()">❌ Đóng</button>
+    </div>
+  </div>
+
+  <div id="success-toast" class="toast hidden">🎉 Đặt lịch thành công!</div>
+  <div id="lottie-success" class="lottie-container hidden"></div>
+  <audio id="pling-sound" src="/static/pling.mp3" preload="auto"></audio>
+
+  <a href="https://zalo.me/0814419333" target="_blank" id="zalo-button">
+    <img src="/static/zalo-icon.png" alt="Zalo">
+  </a>
+
+  <footer class="footer">
+    <p>📞 0814 419 333 • 🌐 www.meddental.vn • 📍 Liên hệ qua <a href="https://zalo.me/0814419333">Zalo CSKH</a></p>
   </footer>
+
+  <script src="/static/script.js"></script>
 </body>
 </html>
