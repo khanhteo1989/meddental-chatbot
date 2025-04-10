@@ -7,7 +7,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html")  # hoặc home.html nếu bạn giữ tên đó
+
 
 @app.route("/chat", methods=["POST"])
 def chat():
