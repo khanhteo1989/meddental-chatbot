@@ -6,22 +6,10 @@
   <title>MedDental | Nha khoa hiện đại</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#004a94',
-            secondary: '#e6f0ff',
-          },
-        }
-      }
-    }
-  </script>
 </head>
 <body class="bg-white text-gray-900">
   <!-- Header -->
-  <header class="bg-primary text-white">
+  <header class="bg-blue-900 text-white">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <img src="/static/images/logo.png" alt="Logo MedDental" class="h-12">
       <nav class="space-x-6 hidden sm:block">
@@ -33,17 +21,17 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-secondary py-12 text-center">
-    <h1 class="text-3xl md:text-4xl font-bold text-primary">Nha khoa MedDental</h1>
-    <p class="text-gray-700 mt-2 text-lg">Chăm sóc răng miệng tận tâm - Công nghệ hiện đại</p>
-    <img src="/static/images/banner.jpg" alt="Banner" class="mx-auto mt-6 rounded-lg shadow-lg w-full max-w-4xl">
+  <!-- Hero Banner -->
+  <section class="bg-blue-50 py-6">
+    <div class="text-center">
+      <img src="/static/images/banner.jpg" alt="Banner MedDental" class="mx-auto rounded-lg shadow-lg max-w-full">
+    </div>
   </section>
 
   <!-- Giới thiệu -->
   <section id="gioithieu" class="py-12 px-4">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl font-bold text-primary">Giới thiệu về MedDental</h2>
+      <h2 class="text-2xl font-bold text-blue-900">Giới thiệu về MedDental</h2>
       <p class="mt-4 text-gray-600">MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC. Chúng tôi cung cấp dịch vụ chăm sóc răng miệng toàn diện với đội ngũ bác sĩ nhiều năm kinh nghiệm và thiết bị hiện đại hàng đầu.</p>
     </div>
   </section>
@@ -51,7 +39,7 @@
   <!-- Cơ sở -->
   <section id="coso" class="py-12 px-4 bg-gray-50">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-primary">Hệ thống cơ sở</h2>
+      <h2 class="text-2xl font-bold text-center text-blue-900">Hệ thống cơ sở</h2>
       <ul class="mt-6 space-y-2 text-gray-700">
         <li>CS1: 87 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội</li>
         <li>CS2: 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội</li>
@@ -67,7 +55,7 @@
   <!-- Dịch vụ -->
   <section id="dichvu" class="py-12 px-4">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-primary">Dịch vụ nổi bật</h2>
+      <h2 class="text-2xl font-bold text-center text-blue-900">Dịch vụ nổi bật</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
         <div class="p-4 bg-white border rounded-lg shadow text-center">Tư vấn & khám tổng quát</div>
         <div class="p-4 bg-white border rounded-lg shadow text-center">Niềng răng - Chỉnh nha</div>
@@ -79,23 +67,24 @@
     </div>
   </section>
 
-  <!-- Liên hệ -->
-  <section id="lienhe" class="py-12 px-4 bg-secondary">
+  <!-- Đặt lịch gửi Google Sheets -->
+  <section id="lienhe" class="py-12 px-4 bg-blue-50">
     <div class="max-w-lg mx-auto">
-      <h2 class="text-2xl font-bold text-center text-primary">Liên hệ với chúng tôi</h2>
-      <form class="mt-6 space-y-4">
-        <input type="text" placeholder="Họ và tên" class="w-full p-3 border rounded">
-        <input type="email" placeholder="Email" class="w-full p-3 border rounded">
-        <textarea placeholder="Nội dung..." rows="4" class="w-full p-3 border rounded"></textarea>
-        <button class="bg-primary text-white px-6 py-3 rounded hover:bg-blue-800 w-full">Gửi thông tin</button>
+      <h2 class="text-2xl font-bold text-center text-blue-900">Liên hệ với chúng tôi</h2>
+      <form id="bookingForm" class="mt-6 space-y-4">
+        <input type="text" name="ten" placeholder="Họ và tên" class="w-full p-3 border rounded" required>
+        <input type="email" name="email" placeholder="Email" class="w-full p-3 border rounded" required>
+        <textarea name="noidung" placeholder="Nội dung..." rows="4" class="w-full p-3 border rounded"></textarea>
+        <button type="submit" class="bg-blue-900 text-white px-6 py-3 rounded hover:bg-blue-800 w-full">Gửi thông tin</button>
       </form>
+      <div id="popup" class="hidden mt-4 text-green-600 font-semibold text-center">✔️ Đặt lịch thành công! Chúng tôi sẽ liên hệ sớm.</div>
     </div>
   </section>
 
-  <!-- Chatbot AI -->
+  <!-- Chatbot popup -->
   <div id="chatbox" class="fixed bottom-4 right-4 w-80 max-w-full bg-white border rounded-lg shadow-lg hidden flex-col overflow-hidden">
-    <div class="bg-primary text-white px-4 py-2 font-bold flex justify-between items-center">
-      <span>Bác sĩ AI</span>
+    <div class="bg-blue-900 text-white px-4 py-2 font-bold flex justify-between items-center">
+      <span>Bác sĩ MedDental</span>
       <button onclick="toggleChat()">×</button>
     </div>
     <div class="h-64 overflow-y-auto p-4 text-sm" id="chat-content">
@@ -105,13 +94,14 @@
       <input id="chat-input" type="text" placeholder="Nhập câu hỏi..." class="w-full p-2 border rounded" onkeypress="if(event.key==='Enter'){sendChat()}"/>
     </div>
   </div>
-  <button onclick="toggleChat()" class="fixed bottom-4 right-4 bg-primary text-white px-4 py-2 rounded-full shadow-lg">Chat</button>
+  <button onclick="toggleChat()" class="fixed bottom-4 right-4 bg-blue-900 text-white px-4 py-2 rounded-full shadow-lg">Chat</button>
 
   <!-- Footer -->
-  <footer class="bg-primary text-white text-center py-6">
-    <p>&copy; 2025 MedDental. Liên Hệ Đặt Lịch 081.441.9333.</p>
+  <footer class="bg-blue-900 text-white text-center py-6 text-sm">
+    <p>&copy; 2025 MedDental. Liên Hệ Đặt Lịch 0814 419 333</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
     function toggleChat() {
       document.getElementById('chatbox').classList.toggle('hidden');
@@ -133,6 +123,30 @@
       content.innerHTML += `<div class='text-left text-gray-600 my-1'>${data.reply}</div>`;
       content.scrollTop = content.scrollHeight;
     }
+
+    // Submit form to Google Sheets
+    const form = document.getElementById("bookingForm");
+    const popup = document.getElementById("popup");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const json = Object.fromEntries(formData.entries());
+
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbwV8oP0helk1mcn_xUN-j5gesgo8AHPPLEWK-69hVe-umxBIA87Faej8xHAY5_XromfYQ/exec", {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(json)
+        });
+
+        popup.classList.remove("hidden");
+        form.reset();
+        setTimeout(() => popup.classList.add("hidden"), 4000);
+      } catch (err) {
+        alert("Lỗi khi gửi đặt lịch. Vui lòng thử lại.");
+      }
+    });
   </script>
 </body>
 </html>
