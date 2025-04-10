@@ -3,12 +3,13 @@ import openai
 import os
 
 app = Flask(__name__)
+
+# Lấy API Key từ biến môi trường
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/")
 def index():
     return render_template("index.html")  # hoặc home.html nếu bạn giữ tên đó
-
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -24,6 +25,5 @@ def chat():
     return jsonify({"reply": reply, "handoff": "đặt lịch" in user_input.lower()})
 
 if __name__ == "__main__":
-    import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
