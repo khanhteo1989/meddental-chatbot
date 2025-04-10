@@ -2,87 +2,98 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>MedDental - Hệ thống nha khoa</title>
-  <link rel="stylesheet" href="/static/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://unpkg.com/lottie-web@latest/build/player/lottie.min.js"></script>
+  <title>MedDental | Hệ thống Nha khoa hiện đại</title>
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
-    <div class="logo"><img src="/static/logo.png" alt="Logo MedDental"></div>
-    <nav class="menu">
-      <a href="#">Trang chủ</a>
-      <a href="#gioithieu">Giới thiệu</a>
-      <a href="#coso">Cơ sở</a>
-    </nav>
+    <div class="container">
+      <div class="logo">
+        <img src="/static/images/logo.png" alt="MedDental Logo">
+      </div>
+      <nav class="nav">
+        <a href="#gioithieu">Giới thiệu</a>
+        <a href="#coso">Hệ thống cơ sở</a>
+        <a href="#dichvu">Dịch vụ</a>
+        <a href="#lienhe">Liên hệ</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="banner">
-    <img src="/static/banner.jpg" alt="MedDental banner" />
-    <div class="hotline-overlay">
-      <strong>Liên hệ: 0814 419 333</strong>
-    </div>
-  </section>
-
-  <section class="intro" id="gioithieu">
-    <h1>Chuyên gia chăm sóc răng miệng tận tâm</h1>
-    <p>Hệ thống nha khoa MedDental trực thuộc Tập đoàn Y tế MEDLATEC - uy tín và chuyên nghiệp, với đội ngũ bác sĩ giàu kinh nghiệm và hệ thống trang thiết bị hiện đại.</p>
-  </section>
-
-  <section class="branches" id="coso">
-    <h2>Các cơ sở MedDental</h2>
-    <ul>
-      <li>CS1: 87 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội</li>
-      <li>CS2: 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội</li>
-      <li>CS3: 42 - 44 Nghĩa Dũng, Ba Đình, Hà Nội</li>
-      <li>CS4: 66 Nghĩa Dũng, Ba Đình, Hà Nội</li>
-      <li>CS5: 99 Trích Sài, Tây Hồ, Hà Nội</li>
-      <li>CS6: A9-02 KĐT Monbay, Hạ Long, Quảng Ninh</li>
-      <li>CS7: KĐT Hà Phong, Tiền Phong, Mê Linh, Hà Nội</li>
-    </ul>
-  </section>
-
-  <div class="chat-container">
-    <div class="chat-header">🦷 Bác sĩ MedDental</div>
-    <div class="chat-box" id="chat-box">
-      <div class="bot-msg">
-        <img src="/static/avatar.png" class="avatar" />
-        <div class="msg">Chào bạn! Tôi là bác sĩ nha khoa. Bạn cần tư vấn gì hôm nay?</div>
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>Nha khoa MedDental</h1>
+        <p>Chăm sóc răng miệng tận tâm - Công nghệ hiện đại</p>
+      </div>
+      <div class="hero-image">
+        <img src="/static/images/banner.jpg" alt="Bác sĩ nha khoa MedDental">
       </div>
     </div>
-    <div class="chat-input">
-      <input type="text" id="user-input" placeholder="Nhập câu hỏi..." />
-      <button onclick="sendMessage()">Gửi</button>
-    </div>
-  </div>
+  </section>
 
-  <div id="booking-popup" class="popup hidden">
-    <div class="popup-content">
-      <h3>📅 Đặt lịch khám MedDental</h3>
-      <form id="booking-form">
-        <input type="text" name="ten" placeholder="Họ và tên" required />
-        <input type="number" name="tuoi" placeholder="Tuổi" required />
-        <input type="text" name="benhly" placeholder="Triệu chứng / Bệnh lý" required />
-        <input type="text" name="coso" placeholder="Cơ sở muốn đến" required />
-        <input type="time" name="gio_goilai" required />
-        <button type="submit">✅ Gửi đặt lịch</button>
+  <!-- Giới thiệu -->
+  <section class="intro" id="gioithieu">
+    <div class="container">
+      <h2>Giới thiệu về MedDental</h2>
+      <p>MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC. Chúng tôi cung cấp dịch vụ chăm sóc răng miệng toàn diện với đội ngũ bác sĩ nhiều năm kinh nghiệm và thiết bị hiện đại hàng đầu.</p>
+    </div>
+  </section>
+
+  <!-- Hệ thống cơ sở -->
+  <section class="branches" id="coso">
+    <div class="container">
+      <h2>Hệ thống cơ sở</h2>
+      <ul>
+        <li>CS1: 87 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội</li>
+        <li>CS2: 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội</li>
+        <li>CS3: 42 - 44 Nghĩa Dũng, Ba Đình, Hà Nội</li>
+        <li>CS4: 66 Nghĩa Dũng, Ba Đình, Hà Nội</li>
+        <li>CS5: 99 Trích Sài, Tây Hồ, Hà Nội</li>
+        <li>CS6: A9-02 KĐT Monbay, Hạ Long, Quảng Ninh</li>
+        <li>CS7: KĐT Hà Phong, Tiền Phong, Mê Linh, Hà Nội</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Dịch vụ -->
+  <section class="services" id="dichvu">
+    <div class="container">
+      <h2>Dịch vụ nổi bật</h2>
+      <div class="service-grid">
+        <div class="service-card">Tư vấn & khám tổng quát</div>
+        <div class="service-card">Niềng răng - Chỉnh nha</div>
+        <div class="service-card">Trồng răng Implant</div>
+        <div class="service-card">Tẩy trắng răng công nghệ</div>
+        <div class="service-card">Lấy cao răng & vệ sinh răng</div>
+        <div class="service-card">Điều trị tủy, sâu răng</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Liên hệ -->
+  <section class="contact" id="lienhe">
+    <div class="container">
+      <h2>Liên hệ với chúng tôi</h2>
+      <form>
+        <input type="text" placeholder="Họ và tên" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Nội dung..." required></textarea>
+        <button type="submit">Gửi thông tin</button>
       </form>
-      <button onclick="closePopup()">❌ Đóng</button>
     </div>
-  </div>
+  </section>
 
-  <div id="success-toast" class="toast hidden">🎉 Đặt lịch thành công!</div>
-  <div id="lottie-success" class="lottie-container hidden"></div>
-  <audio id="pling-sound" src="/static/pling.mp3" preload="auto"></audio>
-
-  <a href="https://zalo.me/0814419333" target="_blank" id="zalo-button">
-    <img src="/static/zalo-icon.png" alt="Zalo">
-  </a>
-
+  <!-- Footer -->
   <footer class="footer">
-    <p>📞 0814 419 333 • 🌐 www.meddental.vn • 📍 Liên hệ qua <a href="https://zalo.me/0814419333">Zalo CSKH</a></p>
+    <div class="container">
+      <p>&copy; 2025 MedDental. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script src="/static/script.js"></script>
+  <script src="/static/js/script.js"></script>
 </body>
 </html>
