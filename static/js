@@ -24,51 +24,55 @@ if (form) {
   });
 }
 
-// Chatbot toggle
+// Toggle chatbot box
 function toggleChat() {
   const box = document.getElementById("chatbox");
   if (box) box.classList.toggle("hidden");
 }
 
-// Gửi tin nhắn chatbot + hiệu ứng + âm thanh
+// Gửi chat tới API Flask
 async function sendChat() {
   const input = document.getElementById("chat-input");
   const content = document.getElementById("chat-content");
   const userText = input.value.trim();
+
   if (!userText) return;
 
-  const userDiv = document.createElement("div");
-  userDiv.className = "text-right text-blue-600 my-1 animate-fade-in";
-  userDiv.textContent = userText;
-  content.appendChild(userDiv);
-  input.value = "";
+  // Thêm tin nhắn người dùng
+  const userMsg = document.createElement("div");
+  userMsg.className = "text-right text-blue-600 my-1 animate-fade-in";
+  userMsg.textContent = userText;
+  content.appendChild(userMsg);
 
   // Âm thanh gửi
-  const sound = new Audio("click.mp3");
-  sound.play();
+  try {
+    const sound = new Audio("/static/sounds/click.mp3");
+    sound.play();
+  } catch (_) {}
 
+  input.value = "";
   content.scrollTop = content.scrollHeight;
 
   try {
     const res = await fetch("/chat", {
       method: "POST",
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: userText })
     });
 
     const data = await res.json();
-    const reply = data.reply || "Xin lỗi, hiện tại hệ thống đang xử lý.";
+    const reply = data.reply || "Xin lỗi, tôi chưa xử lý được.";
 
-    const botDiv = document.createElement("div");
-    botDiv.className = "text-left text-gray-600 my-1 animate-fade-in";
-    botDiv.textContent = reply;
-    content.appendChild(botDiv);
+    const botMsg = document.createElement("div");
+    botMsg.className = "text-left text-gray-600 my-1 animate-fade-in";
+    botMsg.textContent = reply;
+    content.appendChild(botMsg);
 
     content.scrollTop = content.scrollHeight;
   } catch (err) {
-    const errorDiv = document.createElement("div");
-    errorDiv.className = "text-left text-red-500 my-1 animate-fade-in";
-    errorDiv.textContent = "Xin lỗi, hệ thống đang bận. Vui lòng thử lại.";
-    content.appendChild(errorDiv);
+    const errMsg = document.createElement("div");
+    errMsg.className = "text-left text-red-600 my-1";
+    errMsg.textContent = "Mạng yếu hoặc máy chủ đang lỗi.";
+    content.appendChild(errMsg);
   }
 }
