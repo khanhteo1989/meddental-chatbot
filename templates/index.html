@@ -2,42 +2,70 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MedDental | Nha khoa hiện đại</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="bg-white text-gray-900">
 
-  <!-- HEADER -->
-  <header class="bg-blue-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo MedDental" class="h-12">
-      <nav class="space-x-6 hidden sm:block">
-        <a href="#gioithieu" class="hover:underline">Giới thiệu</a>
-        <a href="#coso" class="hover:underline">Cơ sở</a>
-        <a href="#dichvu" class="hover:underline">Dịch vụ</a>
-        <a href="#lienhe" class="hover:underline">Liên hệ</a>
-      </nav>
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-4">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 space-y-4 md:space-y-0">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo MedDental" class="h-12 w-auto">
+        <span class="font-bold text-xl">MEDDENTAL</span>
+      </div>
+
+      <!-- Search -->
+      <div class="flex-1 md:mx-6 w-full max-w-md">
+        <div class="relative">
+          <input type="text" placeholder="Tìm kiếm" class="w-full rounded-full px-4 py-2 text-black" />
+          <button class="absolute right-3 top-2 text-gray-600">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hotline & Support -->
+      <div class="flex items-center space-x-6 text-sm">
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-phone text-blue-300"></i>
+          <div>
+            <p class="text-xs">Hotline</p>
+            <p class="font-semibold text-white">0814 419 333</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-comment-dots text-blue-300"></i>
+          <div>
+            <p class="text-xs">Liên hệ</p>
+            <p class="font-semibold text-white">Hỗ trợ khách hàng</p>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- BANNER -->
+  <!-- Banner -->
   <section class="bg-blue-50 py-6">
     <div class="text-center">
-      <img src="{{ url_for('static', filename='images/banner.jpg') }}" alt="Banner MedDental" class="mx-auto rounded-lg shadow-lg max-w-full">
+      <img src="{{ url_for('static', filename='banner.jpg') }}" alt="Banner MedDental" class="mx-auto rounded-lg shadow-lg max-w-full">
     </div>
   </section>
 
-  <!-- GIỚI THIỆU -->
+  <!-- Giới thiệu -->
   <section id="gioithieu" class="py-12 px-4">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-2xl font-bold text-blue-900">Giới thiệu về MedDental</h2>
       <p class="mt-4 text-gray-600">MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC. Chúng tôi cung cấp dịch vụ chăm sóc răng miệng toàn diện với đội ngũ bác sĩ nhiều năm kinh nghiệm và thiết bị hiện đại hàng đầu.</p>
+      <img src="{{ url_for('static', filename='intro.jpg') }}" alt="Ảnh giới thiệu" class="mt-6 mx-auto rounded shadow max-w-md">
     </div>
   </section>
 
-  <!-- CƠ SỞ -->
+  <!-- Cơ sở -->
   <section id="coso" class="py-12 px-4 bg-gray-50">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-2xl font-bold text-center text-blue-900">Hệ thống cơ sở</h2>
@@ -53,37 +81,32 @@
     </div>
   </section>
 
-  <!-- DỊCH VỤ NỔI BẬT -->
-  <section id="dichvu" class="py-12 px-4 bg-white">
+  <!-- Dịch vụ -->
+  <section id="dichvu" class="py-12 px-4">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-2xl font-bold text-center text-blue-900">Dịch vụ nổi bật</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-8">
-
-        <a href="/dich-vu/implant" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition-all block">
-          <h3 class="text-lg font-semibold text-blue-800 mb-2">Trồng răng Implant</h3>
-          <p class="text-sm text-gray-600">Phục hình răng mất vững chắc, thẩm mỹ và lâu dài.</p>
+        <a href="/dich-vu/implant" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition">
+          <h3 class="text-blue-900 font-bold mb-1">Trồng răng Implant</h3>
+          <p class="text-sm text-gray-700">Phục hình răng mất vững chắc, thẩm mỹ và lâu dài.</p>
         </a>
-
-        <a href="/dich-vu/nieng-rang" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition-all block">
-          <h3 class="text-lg font-semibold text-blue-800 mb-2">Niềng răng - Chỉnh nha</h3>
-          <p class="text-sm text-gray-600">Khắc phục răng lệch, hô, móm với công nghệ hiện đại.</p>
+        <a href="/dich-vu/nieng-rang" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition">
+          <h3 class="text-blue-900 font-bold mb-1">Niềng răng - Chỉnh nha</h3>
+          <p class="text-sm text-gray-700">Khắc phục răng lệch, hô, móm với công nghệ hiện đại.</p>
         </a>
-
-        <a href="/dich-vu/rang-su" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition-all block">
-          <h3 class="text-lg font-semibold text-blue-800 mb-2">Răng sứ thẩm mỹ</h3>
-          <p class="text-sm text-gray-600">Nâng cấp nụ cười hoàn hảo bằng răng sứ cao cấp.</p>
+        <a href="/dich-vu/rang-su" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition">
+          <h3 class="text-blue-900 font-bold mb-1">Răng Sứ Thẩm mỹ</h3>
+          <p class="text-sm text-gray-700">Tăng tính thẩm mỹ, bảo vệ răng tối ưu.</p>
         </a>
-
-        <a href="/dich-vu/nho-rang" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition-all block">
-          <h3 class="text-lg font-semibold text-blue-800 mb-2">Nhổ răng</h3>
-          <p class="text-sm text-gray-600">An toàn, nhẹ nhàng, không đau bằng công nghệ tiên tiến.</p>
+        <a href="/dich-vu/nho-rang" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50 transition">
+          <h3 class="text-blue-900 font-bold mb-1">Nhổ Răng</h3>
+          <p class="text-sm text-gray-700">An toàn, nhanh chóng, không đau.</p>
         </a>
-
       </div>
     </div>
   </section>
 
-  <!-- LIÊN HỆ -->
+  <!-- Liên hệ -->
   <section id="lienhe" class="py-12 px-4 bg-blue-50">
     <div class="max-w-lg mx-auto">
       <h2 class="text-2xl font-bold text-center text-blue-900">Liên hệ với chúng tôi</h2>
@@ -93,39 +116,31 @@
         <textarea name="noidung" placeholder="Nội dung..." rows="4" class="w-full p-3 border rounded"></textarea>
         <button type="submit" class="bg-blue-900 text-white px-6 py-3 rounded hover:bg-blue-800 w-full">Gửi thông tin</button>
       </form>
-      <div id="popup" class="hidden mt-4 text-green-600 font-semibold text-center">✔️ Đặt lịch thành công! Chúng tôi sẽ liên hệ sớm.</div>
+      <div id="popup" class="hidden mt-4 text-green-600 font-semibold text-center">✔️ Đặt lịch thành công!</div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Chatbot -->
+  <div id="chatbox" class="fixed bottom-4 right-4 w-80 max-w-full bg-white border rounded-lg shadow-lg hidden flex-col overflow-hidden z-50">
+    <div class="bg-blue-900 text-white px-4 py-2 font-bold flex justify-between items-center">
+      <span>Bác sĩ MedDental</span>
+      <button onclick="toggleChat()">×</button>
+    </div>
+    <div class="h-64 overflow-y-auto p-4 text-sm" id="chat-content">
+      <div class="text-gray-600">Chào bạn! Tôi là bác sĩ nha khoa AI. Bạn cần hỗ trợ gì hôm nay?</div>
+    </div>
+    <div class="p-2 border-t">
+      <input id="chat-input" type="text" placeholder="Nhập câu hỏi..." class="w-full p-2 border rounded" onkeypress="if(event.key==='Enter'){sendChat()}"/>
+    </div>
+  </div>
+  <button onclick="toggleChat()" class="fixed bottom-4 right-4 bg-blue-900 text-white px-4 py-2 rounded-full shadow-lg z-50">Chat</button>
+
+  <!-- Footer -->
   <footer class="bg-blue-900 text-white text-center py-6 text-sm">
-    <p>&copy; 2025 MedDental. Đặt lịch: 0814 419 333</p>
+    <p>&copy; 2025 MedDental. Liên Hệ Đặt Lịch 0814 419 333</p>
   </footer>
 
-  <!-- JS GOOGLE SHEET -->
-  <script>
-    const form = document.getElementById("bookingForm");
-    const popup = document.getElementById("popup");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const json = Object.fromEntries(formData.entries());
-
-      try {
-        await fetch("https://script.google.com/macros/s/AKfycbwV8oP0helk1mcn_xUN-j5gesgo8AHPPLEWK-69hVe-umxBIA87Faej8xHAY5_XromfYQ/exec", {
-          method: "POST",
-          mode: "no-cors",
-          body: JSON.stringify(json)
-        });
-        popup.classList.remove("hidden");
-        form.reset();
-        setTimeout(() => popup.classList.add("hidden"), 4000);
-      } catch (err) {
-        alert("Lỗi khi gửi đặt lịch. Vui lòng thử lại.");
-      }
-    });
-  </script>
-
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
