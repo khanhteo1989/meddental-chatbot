@@ -1,3 +1,4 @@
+/* Hiệu ứng tin nhắn trượt mượt */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -11,4 +12,18 @@
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-in-out;
+}
+
+/* Tùy chọn: làm tròn ảnh, logo nhỏ */
+img.rounded-avatar {
+  border-radius: 9999px;
+}
+
+/* Fix input + chatbot responsive nếu cần */
+input, textarea {
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+input:focus, textarea:focus {
+  border-color: #2563eb; /* Tailwind blue-600 */
 }
