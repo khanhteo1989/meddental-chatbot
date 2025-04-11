@@ -1,20 +1,52 @@
-// Toggle chatbot popup
-function toggleChat() {
-  const chatbox = document.getElementById("chatbox");
-  chatbox.classList.toggle("hidden");
+// Gửi form Google Sheets
+const form = document.getElementById("bookingForm");
+const popup = document.getElementById("popup");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const json = Object.fromEntries(formData.entries());
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwV8oP0helk1mcn_xUN-j5gesgo8AHPPLEWK-69hVe-umxBIA87Faej8xHAY5_XromfYQ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(json)
+      });
+
+      popup.classList.remove("hidden");
+      form.reset();
+      setTimeout(() => popup.classList.add("hidden"), 4000);
+    } catch (err) {
+      alert("Lỗi gửi thông tin. Vui lòng thử lại.");
+    }
+  });
 }
 
-// Gửi tin nhắn đến chatbot
+// Chatbot toggle
+function toggleChat() {
+  const box = document.getElementById("chatbox");
+  if (box) box.classList.toggle("hidden");
+}
+
+// Gửi tin nhắn chatbot + hiệu ứng + âm thanh
 async function sendChat() {
   const input = document.getElementById("chat-input");
   const content = document.getElementById("chat-content");
   const userText = input.value.trim();
-
   if (!userText) return;
 
-  // Hiển thị tin nhắn người dùng
-  content.innerHTML += `<div class='text-right text-blue-600 my-1'>${userText}</div>`;
+  const userDiv = document.createElement("div");
+  userDiv.className = "text-right text-blue-600 my-1 animate-fade-in";
+  userDiv.textContent = userText;
+  content.appendChild(userDiv);
   input.value = "";
+
+  // Âm thanh gửi
+  const sound = new Audio("/static/sounds/click.mp3");
+  sound.play();
+
   content.scrollTop = content.scrollHeight;
 
   try {
@@ -25,37 +57,18 @@ async function sendChat() {
     });
 
     const data = await res.json();
-    content.innerHTML += `<div class='text-left text-gray-600 my-1'>${data.reply}</div>`;
+    const reply = data.reply || "Xin lỗi, hiện tại hệ thống đang xử lý.";
+
+    const botDiv = document.createElement("div");
+    botDiv.className = "text-left text-gray-600 my-1 animate-fade-in";
+    botDiv.textContent = reply;
+    content.appendChild(botDiv);
+
     content.scrollTop = content.scrollHeight;
   } catch (err) {
-    content.innerHTML += `<div class='text-left text-red-500 my-1'>Lỗi khi gửi phản hồi.</div>`;
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "text-left text-red-500 my-1 animate-fade-in";
+    errorDiv.textContent = "Anh/chị đợi xong giây lát.";
+    content.appendChild(errorDiv);
   }
 }
-
-// Xử lý gửi form đặt lịch
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("bookingForm");
-  const popup = document.getElementById("popup");
-
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const json = Object.fromEntries(formData.entries());
-
-      try {
-        await fetch("https://script.google.com/macros/s/AKfycbwV8oP0helk1mcn_xUN-j5gesgo8AHPPLEWK-69hVe-umxBIA87Faej8xHAY5_XromfYQ/exec", {
-          method: "POST",
-          mode: "no-cors",
-          body: JSON.stringify(json)
-        });
-
-        popup.classList.remove("hidden");
-        form.reset();
-        setTimeout(() => popup.classList.add("hidden"), 4000);
-      } catch (err) {
-        alert("Lỗi khi gửi thông tin. Vui lòng thử lại sau.");
-      }
-    });
-  }
-});
