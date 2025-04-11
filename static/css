@@ -1,76 +1,74 @@
-/* style.css */
+// Gửi form Google Sheets
+const form = document.getElementById("bookingForm");
+const popup = document.getElementById("popup");
 
-body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #ffffff;
-  color: #1a202c;
-  line-height: 1.6;
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const json = Object.fromEntries(formData.entries());
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbwV8oP0helk1mcn_xUN-j5gesgo8AHPPLEWK-69hVe-umxBIA87Faej8xHAY5_XromfYQ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(json)
+      });
+
+      popup.classList.remove("hidden");
+      form.reset();
+      setTimeout(() => popup.classList.add("hidden"), 4000);
+    } catch (err) {
+      alert("Lỗi gửi thông tin. Vui lòng thử lại.");
+    }
+  });
 }
 
-h1, h2, h3, h4 {
-  font-weight: 700;
-  color: #1e3a8a;
+// Chatbot toggle
+function toggleChat() {
+  const box = document.getElementById("chatbox");
+  if (box) box.classList.toggle("hidden");
 }
 
-a {
-  color: #2563eb;
-  text-decoration: none;
-}
+// Gửi tin nhắn chatbot + hiệu ứng + âm thanh
+async function sendChat() {
+  const input = document.getElementById("chat-input");
+  const content = document.getElementById("chat-content");
+  const userText = input.value.trim();
+  if (!userText) return;
 
-a:hover {
-  text-decoration: underline;
-}
+  const userDiv = document.createElement("div");
+  userDiv.className = "text-right text-blue-600 my-1 animate-fade-in";
+  userDiv.textContent = userText;
+  content.appendChild(userDiv);
+  input.value = "";
 
-section {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
+  // Âm thanh gửi
+  const sound = new Audio("/static/sounds/click.mp3");
+  sound.play();
 
-form input,
-form textarea {
-  border: 1px solid #cbd5e0;
-  border-radius: 0.375rem;
-  padding: 0.75rem;
-  width: 100%;
-  margin-bottom: 1rem;
-}
+  content.scrollTop = content.scrollHeight;
 
-form button {
-  background-color: #1e3a8a;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem;
-  border: none;
-  transition: background-color 0.3s ease;
-}
+  try {
+    const res = await fetch("/chat", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userText })
+    });
 
-form button:hover {
-  background-color: #1e40af;
-}
+    const data = await res.json();
+    const reply = data.reply || "Xin lỗi, hiện tại hệ thống đang xử lý.";
 
-footer {
-  background-color: #1e3a8a;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.875rem;
-}
+    const botDiv = document.createElement("div");
+    botDiv.className = "text-left text-gray-600 my-1 animate-fade-in";
+    botDiv.textContent = reply;
+    content.appendChild(botDiv);
 
-/* Chatbot popup styles */
-#chatbox {
-  transition: all 0.3s ease-in-out;
-}
-
-#chatbox input {
-  border: 1px solid #cbd5e0;
-}
-
-#chatbox button {
-  background-color: #ef4444;
-  color: white;
-  font-weight: bold;
-}
-
-.shadow-lg {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    content.scrollTop = content.scrollHeight;
+  } catch (err) {
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "text-left text-red-500 my-1 animate-fade-in";
+    errorDiv.textContent = "Anh/chị đợi xong giây lát.";
+    content.appendChild(errorDiv);
+  }
 }
