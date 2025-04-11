@@ -1,0 +1,61 @@
+// Toggle chatbot popup
+function toggleChat() {
+  const chatbox = document.getElementById("chatbox");
+  chatbox.classList.toggle("hidden");
+}
+
+// Gửi tin nhắn đến chatbot
+async function sendChat() {
+  const input = document.getElementById("chat-input");
+  const content = document.getElementById("chat-content");
+  const userText = input.value.trim();
+
+  if (!userText) return;
+
+  // Hiển thị tin nhắn người dùng
+  content.innerHTML += `<div class='text-right text-blue-600 my-1'>${userText}</div>`;
+  input.value = "";
+  content.scrollTop = content.scrollHeight;
+
+  try {
+    const res = await fetch("/chat", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userText })
+    });
+
+    const data = await res.json();
+    content.innerHTML += `<div class='text-left text-gray-600 my-1'>${data.reply}</div>`;
+    content.scrollTop = content.scrollHeight;
+  } catch (err) {
+    content.innerHTML += `<div class='text-left text-red-500 my-1'>Lỗi khi gửi phản hồi.</div>`;
+  }
+}
+
+// Xử lý gửi form đặt lịch
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("bookingForm");
+  const popup = document.getElementById("popup");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const json = Object.fromEntries(formData.entries());
+
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbwV8oP0helk1mcn_xUN-j5gesgo8AHPPLEWK-69hVe-umxBIA87Faej8xHAY5_XromfYQ/exec", {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(json)
+        });
+
+        popup.classList.remove("hidden");
+        form.reset();
+        setTimeout(() => popup.classList.add("hidden"), 4000);
+      } catch (err) {
+        alert("Lỗi khi gửi thông tin. Vui lòng thử lại sau.");
+      }
+    });
+  }
+});
