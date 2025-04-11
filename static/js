@@ -44,7 +44,7 @@ async function sendChat() {
   input.value = "";
 
   // Âm thanh gửi
-  const sound = new Audio("/static/sounds/click.mp3");
+  const sound = new Audio("click.mp3");
   sound.play();
 
   content.scrollTop = content.scrollHeight;
@@ -68,7 +68,7 @@ async function sendChat() {
   } catch (err) {
     const errorDiv = document.createElement("div");
     errorDiv.className = "text-left text-red-500 my-1 animate-fade-in";
-    errorDiv.textContent = "Anh/chị đợi xong giây lát.";
+    errorDiv.textContent = "Xin lỗi, hệ thống đang bận. Vui lòng thử lại.";
     content.appendChild(errorDiv);
   }
 }
