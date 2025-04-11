@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body class="bg-white text-gray-900">
 
@@ -52,24 +53,8 @@
   <section id="gioithieu" class="py-12 px-4 bg-white">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-2xl font-bold text-blue-900">Giới thiệu về MedDental</h2>
-      <p class="mt-4 text-gray-700">MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC. Chúng tôi cung cấp dịch vụ chăm sóc răng miệng toàn diện với đội ngũ bác sĩ nhiều năm kinh nghiệm và thiết bị hiện đại hàng đầu.</p>
+      <p class="mt-4 text-gray-700">MedDental là hệ thống nha khoa chuyên sâu thuộc Tập đoàn Y tế MEDLATEC...</p>
       <img src="{{ url_for('static', filename='intro.jpg') }}" alt="Ảnh giới thiệu" class="mx-auto mt-6 rounded-lg shadow max-w-full">
-    </div>
-  </section>
-
-  <!-- Cơ sở -->
-  <section id="coso" class="py-12 px-4 bg-gray-50">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-blue-900">Hệ thống cơ sở</h2>
-      <ul class="mt-6 space-y-2 text-gray-700">
-        <li>CS1: 87 Bùi Thị Xuân, Hai Bà Trưng, Hà Nội</li>
-        <li>CS2: 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội</li>
-        <li>CS3: 42 - 44 Nghĩa Dũng, Ba Đình, Hà Nội</li>
-        <li>CS4: 66 Nghĩa Dũng, Ba Đình, Hà Nội</li>
-        <li>CS5: 99 Trích Sài, Tây Hồ, Hà Nội</li>
-        <li>CS6: A9-02 KĐT Monbay, Hạ Long, Quảng Ninh</li>
-        <li>CS7: KĐT Hà Phong, Tiền Phong, Mê Linh, Hà Nội</li>
-      </ul>
     </div>
   </section>
 
@@ -88,11 +73,11 @@
         </a>
         <a href="/dich-vu/rang-su" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50">
           <h3 class="font-semibold text-blue-900">Răng sứ thẩm mỹ</h3>
-          <p class="text-sm text-gray-600">Cải thiện thẩm mỹ nụ cười với răng sứ chất lượng cao.</p>
+          <p class="text-sm text-gray-600">Thẩm mỹ nụ cười trắng sáng, tự nhiên.</p>
         </a>
         <a href="/dich-vu/nho-rang" class="p-4 bg-white border rounded-lg shadow hover:bg-blue-50">
           <h3 class="font-semibold text-blue-900">Nhổ răng</h3>
-          <p class="text-sm text-gray-600">Nhổ răng nhẹ nhàng, không đau với bác sĩ giàu kinh nghiệm.</p>
+          <p class="text-sm text-gray-600">Nhổ răng nhẹ nhàng, không đau.</p>
         </a>
       </div>
     </div>
@@ -112,8 +97,8 @@
     </div>
   </section>
 
-  <!-- Chatbot -->
-  <div id="chatbox" class="fixed bottom-4 right-4 w-80 max-w-full bg-white border rounded-lg shadow-lg hidden flex-col overflow-hidden z-50">
+  <!-- CHATBOX -->
+  <div id="chatbox" class="fixed bottom-24 right-6 w-80 max-w-full bg-white border rounded-lg shadow-lg hidden flex-col overflow-hidden z-50">
     <div class="bg-blue-900 text-white px-4 py-2 font-bold flex justify-between items-center">
       <span>Bác sĩ MedDental</span>
       <button onclick="toggleChat()">×</button>
@@ -125,9 +110,20 @@
       <input id="chat-input" type="text" placeholder="Nhập câu hỏi..." class="w-full p-2 border rounded" onkeypress="if(event.key==='Enter'){sendChat()}"/>
     </div>
   </div>
-  <button onclick="toggleChat()" class="fixed bottom-4 right-4 bg-blue-900 text-white px-4 py-2 rounded-full shadow-lg z-50">Chat</button>
 
-  <!-- Footer -->
+  <!-- Nút mở Chatbot: Lottie Player -->
+  <lottie-player
+    src="https://lottie.host/9ce13ba8-6202-4780-a58e-2e5917dc40f6/cS2UwBeU95.json"
+    background="transparent"
+    speed="1"
+    style="width: 80px; height: 80px;"
+    class="fixed bottom-6 right-6 z-50 cursor-pointer"
+    loop
+    autoplay
+    onclick="toggleChat()">
+  </lottie-player>
+
+  <!-- FOOTER -->
   <footer class="bg-blue-900 text-white text-center py-6 text-sm">
     <p>&copy; 2025 MedDental. Liên Hệ Đặt Lịch 0814 419 333</p>
   </footer>
