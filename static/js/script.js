@@ -45,7 +45,7 @@ async function sendChat() {
 
   // Âm thanh gửi
   try {
-    const sound = new Audio("/static/sounds/click.mp3");
+    const sound = new Audio("/static/click.mp3");
     sound.play();
   } catch (_) {}
 
