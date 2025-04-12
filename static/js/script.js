@@ -24,31 +24,24 @@ if (form) {
   });
 }
 
-// Toggle chatbot
+// Toggle Chatbox
 function toggleChat() {
   const box = document.getElementById("chatbox");
-  if (box) box.classList.toggle("hidden");
+  box.classList.toggle("hidden");
 }
 
-// Gửi chat tới chatbot AI
+// Gửi tin nhắn tới ChatGPT
 async function sendChat() {
   const input = document.getElementById("chat-input");
   const content = document.getElementById("chat-content");
   const userText = input.value.trim();
   if (!userText) return;
 
-  // Hiển thị tin người dùng
-  const userDiv = document.createElement("div");
-  userDiv.className = "text-right text-blue-600 my-1 animate-fade-in";
-  userDiv.textContent = userText;
-  content.appendChild(userDiv);
-
-  // Âm thanh gửi
-  try {
-    const sound = new Audio("/static/click.mp3");
-    sound.play();
-  } catch (_) {}
-
+  // Bubble người dùng
+  const userBubble = document.createElement("div");
+  userBubble.className = "bg-blue-600 text-white px-3 py-2 rounded-lg self-end max-w-[80%] ml-auto animate-fade-in";
+  userBubble.textContent = userText;
+  content.appendChild(userBubble);
   input.value = "";
   content.scrollTop = content.scrollHeight;
 
@@ -60,18 +53,17 @@ async function sendChat() {
     });
 
     const data = await res.json();
-    const reply = data.reply || "Xin lỗi, hiện tại tôi chưa xử lý được.";
+    const reply = data.reply || "Xin lỗi, tôi chưa thể trả lời ngay.";
 
-    const botDiv = document.createElement("div");
-    botDiv.className = "text-left text-gray-600 my-1 animate-fade-in";
-    botDiv.textContent = reply;
-    content.appendChild(botDiv);
+    const botBubble = document.createElement("div");
+    botBubble.className = "bg-gray-200 text-gray-800 px-3 py-2 rounded-lg max-w-[80%] animate-fade-in";
+    botBubble.textContent = reply;
+    content.appendChild(botBubble);
     content.scrollTop = content.scrollHeight;
-
   } catch (err) {
-    const errorDiv = document.createElement("div");
-    errorDiv.className = "text-left text-red-600 my-1 animate-fade-in";
-    errorDiv.textContent = "Mạng yếu hoặc server đang gặp sự cố.";
-    content.appendChild(errorDiv);
+    const errorBubble = document.createElement("div");
+    errorBubble.className = "bg-red-100 text-red-600 px-3 py-2 rounded-lg max-w-[80%]";
+    errorBubble.textContent = "Lỗi mạng hoặc hệ thống đang bận.";
+    content.appendChild(errorBubble);
   }
 }
