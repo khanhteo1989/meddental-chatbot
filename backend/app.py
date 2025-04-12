@@ -24,3 +24,4 @@ def chat():
     except Exception as e:
         print("Chatbot Error:", e)
         return jsonify({ "reply": "Xin lỗi, hệ thống đang bận." }), 500
+
