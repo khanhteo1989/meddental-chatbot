@@ -31,10 +31,15 @@ export default function Chatbox() {
 
   return (
     <div className="fixed bottom-6 right-6 bg-[#111827] w-[420px] max-w-full rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-700 z-50">
-      <div className="bg-green-500 p-4 text-lg font-bold text-white flex justify-between">
-        <span>Bác sĩ MedDental</span>
-        <button className="text-xl" onClick={() => alert("Thêm toggle nếu muốn")}>×</button>
-      </div>
+    
+      <div className="bg-green-500 p-4 text-white flex items-center justify-between">
+  <div className="flex items-center space-x-2">
+    <img src="/avatar.png" alt="avatar" className="w-8 h-8 rounded-full border border-white"/>
+    <span className="font-bold">Bác sĩ MedDental</span>
+  </div>
+  <button className="text-xl font-bold" onClick={() => alert("Đóng chat")}>×</button>
+</div>
+
 
       <div className="h-[320px] overflow-y-auto p-4 space-y-2">
         {messages.map((msg, i) => (
