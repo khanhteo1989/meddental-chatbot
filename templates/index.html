@@ -88,16 +88,22 @@
   </div>
 </section>
   
-<!-- CHATBOX V2 -->
-<div id="chatbox" class="fixed bottom-24 right-6 w-80 max-w-full bg-white border border-gray-300 rounded-xl shadow-lg hidden flex-col overflow-hidden z-50">
-  <!-- Header -->
-  <div class="bg-blue-900 text-white px-4 py-2 flex justify-between items-center">
-    <div class="flex items-center space-x-2">
-      <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Bác sĩ" class="w-6 h-6 rounded-full border border-white">
-      <span class="font-semibold">Bác sĩ MedDental</span>
-    </div>
-    <button onclick="toggleChat()">✕</button>
+<!-- CHATBOX -->
+<div id="chatbox" class="fixed bottom-20 right-6 w-[380px] max-w-full bg-white border border-gray-300 rounded-xl shadow-2xl hidden flex-col overflow-hidden z-50 transition-all duration-300">
+  <div class="bg-blue-900 text-white px-4 py-3 font-semibold flex items-center space-x-3">
+    <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="Bot" class="w-8 h-8 rounded-full border border-white" />
+    <span>Bác sĩ MedDental</span>
+    <button onclick="toggleChat()" class="ml-auto text-white hover:text-red-400 font-bold">×</button>
   </div>
+  <div id="chat-content" class="flex flex-col gap-2 p-4 h-[400px] overflow-y-auto bg-gray-50 text-sm">
+    <div class="bg-gray-100 text-gray-800 px-4 py-2 rounded-lg w-fit max-w-[80%]">Chào bạn! Tôi là bác sĩ nha khoa AI. Bạn cần hỗ trợ gì hôm nay?</div>
+  </div>
+  <div class="p-3 border-t bg-white">
+    <input id="chat-input" type="text" placeholder="Nhập câu hỏi..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onkeypress="if(event.key==='Enter'){sendChat()}"/>
+  </div>
+</div>
+
+
 
   <!-- Nội dung chat -->
   <div id="chat-content" class="h-64 overflow-y-auto p-4 space-y-2 bg-gray-50 text-sm">
@@ -110,7 +116,7 @@
   </div>
 </div>
 
-<!-- Nút bật chatbot -->
+<!-- Nút mở Chatbot -->
 <lottie-player
   src="https://lottie.host/9ce13ba8-6202-4780-a58e-2e5917dc40f6/cS2UwBeU95.json"
   background="transparent"
@@ -119,6 +125,7 @@
   class="fixed bottom-6 right-6 z-50 cursor-pointer"
   loop autoplay onclick="toggleChat()">
 </lottie-player>
+
 
 
  <!-- Footer -->
