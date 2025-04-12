@@ -24,25 +24,24 @@ if (form) {
   });
 }
 
-// Toggle chatbot box
+// Toggle chatbot
 function toggleChat() {
   const box = document.getElementById("chatbox");
   if (box) box.classList.toggle("hidden");
 }
 
-// Gửi chat tới API Flask
+// Gửi chat tới chatbot AI
 async function sendChat() {
   const input = document.getElementById("chat-input");
   const content = document.getElementById("chat-content");
   const userText = input.value.trim();
-
   if (!userText) return;
 
-  // Thêm tin nhắn người dùng
-  const userMsg = document.createElement("div");
-  userMsg.className = "text-right text-blue-600 my-1 animate-fade-in";
-  userMsg.textContent = userText;
-  content.appendChild(userMsg);
+  // Hiển thị tin người dùng
+  const userDiv = document.createElement("div");
+  userDiv.className = "text-right text-blue-600 my-1 animate-fade-in";
+  userDiv.textContent = userText;
+  content.appendChild(userDiv);
 
   // Âm thanh gửi
   try {
@@ -61,18 +60,18 @@ async function sendChat() {
     });
 
     const data = await res.json();
-    const reply = data.reply || "Xin lỗi, tôi chưa xử lý được.";
+    const reply = data.reply || "Xin lỗi, hiện tại tôi chưa xử lý được.";
 
-    const botMsg = document.createElement("div");
-    botMsg.className = "text-left text-gray-600 my-1 animate-fade-in";
-    botMsg.textContent = reply;
-    content.appendChild(botMsg);
-
+    const botDiv = document.createElement("div");
+    botDiv.className = "text-left text-gray-600 my-1 animate-fade-in";
+    botDiv.textContent = reply;
+    content.appendChild(botDiv);
     content.scrollTop = content.scrollHeight;
+
   } catch (err) {
-    const errMsg = document.createElement("div");
-    errMsg.className = "text-left text-red-600 my-1";
-    errMsg.textContent = "Mạng yếu hoặc máy chủ đang lỗi.";
-    content.appendChild(errMsg);
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "text-left text-red-600 my-1 animate-fade-in";
+    errorDiv.textContent = "Mạng yếu hoặc server đang gặp sự cố.";
+    content.appendChild(errorDiv);
   }
 }
