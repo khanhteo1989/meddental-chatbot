@@ -129,7 +129,8 @@
       chatContent.scrollTop = chatContent.scrollHeight;
 
       try {
-        const res = await fetch("https://your-backend-domain.com/chat", {
+        const res = await fetch("https://meddental-backend.up.railway.app/chat", {
+
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message })
