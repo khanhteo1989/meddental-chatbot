@@ -110,60 +110,66 @@
 
   <!-- NÚT BẬT CHAT -->
   <lottie-player
-    id="chat-toggle-button"
-    src="https://lottie.host/9ce13ba8-6202-4780-a58e-2e5917dc40f6/cS2UwBeU95.json"
-    background="transparent"
-    speed="1"
-    style="width: 64px; height: 64px;"
-    class="fixed bottom-6 right-6 z-40 cursor-pointer"
-    loop autoplay onclick="toggleChat()">
-  </lottie-player>
+  id="chat-toggle-button"
+  src="https://lottie.host/9ce13ba8-6202-4780-a58e-2e5917dc40f6/cS2UwBeU95.json"
+  background="transparent"
+  speed="1"
+  style="width: 64px; height: 64px;"
+  class="fixed bottom-6 right-6 z-40 cursor-pointer"
+  loop autoplay>
+</lottie-player>
 
-  <!-- SCRIPT -->
-  <script>
-    function toggleChat() {
-      const chatbox = document.getElementById("chatbox");
-      const toggleButton = document.getElementById("chat-toggle-button");
-      chatbox.classList.toggle("hidden");
-      toggleButton.classList.toggle("hidden");
+
+<script>
+  const BACKEND_URL = "https://meddental-backend-production.up.railway.app/chat";
+
+  function toggleChat() {
+    const chatbox = document.getElementById("chatbox");
+    const toggleButton = document.getElementById("chat-toggle-button");
+    chatbox.classList.toggle("hidden");
+    toggleButton.classList.toggle("hidden");
+  }
+
+  // Gán sự kiện click an toàn sau khi DOM đã render
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById("chat-toggle-button");
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", toggleChat);
+    }
+  });
+
+  async function sendMessage() {
+    const input = document.getElementById("chat-input");
+    const chatContent = document.getElementById("chat-content");
+    const message = input.value.trim();
+    if (!message) return;
+
+    const userDiv = document.createElement("div");
+    userDiv.className = "bg-blue-100 text-blue-900 px-3 py-2 rounded w-fit max-w-[80%]";
+    userDiv.textContent = message;
+    chatContent.appendChild(userDiv);
+    chatContent.scrollTop = chatContent.scrollHeight;
+    input.value = "";
+
+    const resDiv = document.createElement("div");
+    resDiv.className = "bg-gray-200 text-gray-800 px-3 py-2 rounded w-fit max-w-[80%]";
+    resDiv.textContent = "Đang trả lời...";
+    chatContent.appendChild(resDiv);
+    chatContent.scrollTop = chatContent.scrollHeight;
+
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+      resDiv.textContent = data.reply || "❌ Không có phản hồi từ máy chủ.";
+    } catch (e) {
+      resDiv.textContent = "⚠️ Lỗi kết nối với chatbot.";
     }
 
-    const BACKEND_URL = "https://meddental-backend-production.up.railway.app/chat";
-
-    async function sendMessage() {
-      const input = document.getElementById("chat-input");
-      const chatContent = document.getElementById("chat-content");
-      const message = input.value.trim();
-      if (!message) return;
-
-      const userDiv = document.createElement("div");
-      userDiv.className = "bg-blue-100 text-blue-900 px-3 py-2 rounded w-fit max-w-[80%]";
-      userDiv.textContent = message;
-      chatContent.appendChild(userDiv);
-      chatContent.scrollTop = chatContent.scrollHeight;
-      input.value = "";
-
-      const resDiv = document.createElement("div");
-      resDiv.className = "bg-gray-200 text-gray-800 px-3 py-2 rounded w-fit max-w-[80%]";
-      resDiv.textContent = "Đang trả lời...";
-      chatContent.appendChild(resDiv);
-      chatContent.scrollTop = chatContent.scrollHeight;
-
-      try {
-        const res = await fetch(BACKEND_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message })
-        });
-        const data = await res.json();
-        resDiv.textContent = data.reply || "❌ Không có phản hồi từ máy chủ.";
-      } catch (e) {
-        resDiv.textContent = "⚠️ Lỗi kết nối với chatbot.";
-      }
-
-      chatContent.scrollTop = chatContent.scrollHeight;
-    }
-  </script>
-
-</body>
-</html>
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+</script>
