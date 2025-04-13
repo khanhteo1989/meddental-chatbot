@@ -124,7 +124,7 @@
     chatbox.classList.toggle("hidden");
   }
 
-  const BACKEND_URL = "https://meddental-backend.railway.internal"; // Thay domain backend thật
+  const BACKEND_URL = "https://meddental-backend-production.up.railway.app/chat"; // THAY bằng domain thật nếu khác
 
   async function sendMessage() {
     const input = document.getElementById("chat-input");
@@ -161,3 +161,6 @@
     chatContent.scrollTop = chatContent.scrollHeight;
   }
 </script>
+
+</body>
+</html>
