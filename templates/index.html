@@ -23,20 +23,37 @@
     </div>
   </div>
 
-  <!-- HEADER -->
-  <header class="bg-white py-2 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
-      <div class="flex items-center space-x-4 w-full sm:w-auto">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo MedDental" class="h-14 w-auto" />
-        <form class="flex items-center flex-1 max-w-md mx-4" onsubmit="return false;">
-          <input type="text" placeholder="Tìm kiếm" class="w-full px-4 py-2 border rounded-l-md text-black" />
-          <button class="bg-blue-900 text-white px-3 py-2 rounded-r-md">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
+  <!-- HEADER & MENU -->
+<header class="bg-white shadow">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+    <div class="flex items-center gap-4">
+      <img src="meddental-chatbot/static/logo.png" alt="MedDental" class="h-10">
+      <span class="font-bold text-lg text-blue-900">MEDDENTAL</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="relative">
+        <input type="text" placeholder="Tìm kiếm" class="border rounded-md px-3 py-1 text-sm">
+        <i class="fas fa-search absolute right-2 top-1.5 text-gray-400 text-sm"></i>
+      </div>
+      <div class="text-sm">
+        <p class="text-gray-600">Hotline</p>
+        <p class="text-blue-900 font-semibold">0814419333</p>
+      </div>
+      <div class="text-sm">
+        <p class="text-gray-600">Liên hệ</p>
+        <p class="text-blue-900 font-semibold">Hỗ trợ khách hàng</p>
       </div>
     </div>
-  </header>
+  </div>
+  <nav class="bg-gray-900 text-white text-sm py-2 px-4 flex gap-5 justify-center">
+    <a href="index.html" class="hover:text-yellow-300">Giới thiệu</a>
+    <a href="rang-su.html" class="hover:text-yellow-300">Răng sứ thẩm mỹ</a>
+    <a href="nho-rang.html" class="hover:text-yellow-300">Nhổ răng</a>
+    <a href="nieng-rang.html" class="hover:text-yellow-300">Niềng răng</a>
+    <a href="implant.html" class="hover:text-yellow-300">Trồng Implant</a>
+  </nav>
+</header>
+
   
   
   <!-- Banner -->
