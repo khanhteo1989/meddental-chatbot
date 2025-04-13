@@ -11,145 +11,92 @@
 </head>
 <body class="bg-white text-gray-900">
 
-  <!-- TOPBAR -->
-  <div class="bg-blue-900 text-white text-sm py-2 px-4 flex justify-between items-center">
-    <div class="flex items-center space-x-4">
-      <i class="fas fa-phone-alt"></i>
-      <span>Hotline: <strong>0814 419 333</strong></span>
+  <!-- HEADER FULL -->
+  <header class="bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+      <div class="flex items-center gap-3">
+        <img src="meddental-chatbot/static/logo.jpg" alt="MedDental Logo" class="h-12 w-auto">
+        <span class="text-xl font-bold text-blue-800">MEDDENTAL</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="relative">
+          <input type="text" placeholder="Tìm kiếm" class="border border-gray-300 rounded-full px-4 py-1 text-sm focus:outline-none">
+          <i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+        </div>
+        <div class="text-sm text-gray-800 flex items-center gap-2">
+          <i class="fas fa-phone text-blue-600"></i>
+          <div>
+            <p class="text-xs text-gray-500">Hotline</p>
+            <p class="font-semibold">0985018688</p>
+          </div>
+        </div>
+        <div class="text-sm text-gray-800 flex items-center gap-2">
+          <i class="fas fa-comment-dots text-blue-600"></i>
+          <div>
+            <p class="text-xs text-gray-500">Liên hệ</p>
+            <p class="font-semibold">Hỗ trợ khách hàng</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="flex items-center space-x-2">
-      <i class="fas fa-headset"></i>
-      <span>Hỗ trợ khách hàng</span>
-    </div>
-  </div>
+    <nav class="bg-white border-t border-gray-200 text-sm text-gray-800 px-4 py-2">
+      <div class="max-w-7xl mx-auto flex gap-6">
+        <a href="index.html" class="hover:text-blue-700 font-medium"><i class="fas fa-home"></i> Giới thiệu</a>
+        <a href="rang-su.html" class="hover:text-blue-700">Nha khoa thẩm mỹ</a>
+        <a href="nho-rang.html" class="hover:text-blue-700">Nha khoa tổng quát</a>
+        <a href="#" class="hover:text-blue-700">Sản phẩm</a>
+        <a href="#" class="hover:text-blue-700">Bảng giá</a>
+        <a href="#" class="hover:text-blue-700">Khách hàng</a>
+        <a href="#" class="hover:text-blue-700">Tin tức</a>
+        <a href="#" class="hover:text-blue-700">Tuyển dụng</a>
+        <a href="#" class="hover:text-blue-700">Liên hệ</a>
+      </div>
+    </nav>
+  </header>
 
-  <!-- HEADER & MENU -->
-<header class="bg-white shadow">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-    <div class="flex items-center gap-4">
-      <img src="meddental-chatbot/static/logo.jpg" alt="MedDental" class="h-10">
-      <span class="font-bold text-lg text-blue-900">MEDDENTAL</span>
-    </div>
-    <div class="flex items-center gap-4">
-      <div class="relative">
-        <input type="text" placeholder="Tìm kiếm" class="border rounded-md px-3 py-1 text-sm">
-        <i class="fas fa-search absolute right-2 top-1.5 text-gray-400 text-sm"></i>
-      </div>
-      <div class="text-sm">
-        <p class="text-gray-600">Hotline</p>
-        <p class="text-blue-900 font-semibold">0814419333</p>
-      </div>
-      <div class="text-sm">
-        <p class="text-gray-600">Liên hệ</p>
-        <p class="text-blue-900 font-semibold">Hỗ trợ khách hàng</p>
-      </div>
-    </div>
-  </div>
-  <nav class="bg-gray-900 text-white text-sm py-2 px-4 flex gap-5 justify-center">
-    <a href="index.html" class="hover:text-yellow-300">Giới thiệu</a>
-    <a href="rang-su.html" class="hover:text-yellow-300">Răng sứ thẩm mỹ</a>
-    <a href="nho-rang.html" class="hover:text-yellow-300">Nhổ răng</a>
-    <a href="nieng-rang.html" class="hover:text-yellow-300">Niềng răng</a>
-    <a href="implant.html" class="hover:text-yellow-300">Trồng Implant</a>
-  </nav>
-</header>
-
-  
-  
   <!-- Banner -->
   <section class="bg-blue-50 py-4">
     <div class="text-center">
       <img src="{{ url_for('static', filename='banner.jpg') }}" alt="Banner MedDental" class="mx-auto rounded-lg shadow-lg max-w-full" />
     </div>
   </section>
-  
 
  <!-- Giới thiệu -->
 <section id="gioithieu" class="py-12 px-4 bg-white text-gray-700">
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-2xl font-bold text-blue-900 mb-6">Giới thiệu về MedDental</h2>
-
-    <p class="mb-6">MedDental là hệ thống nha khoa trực thuộc hệ thống y tế tư nhân Medlatec. Đơn vị là mảnh ghép quan trọng trong hệ sinh thái Medlatec đang có mặt tại hơn 48 tỉnh, thành phố trên cả nước. Xuất phát điểm này giúp MedDental thừa hưởng và áp dụng hầu hết tiêu chuẩn y khoa của thương hiệu Medlatec 28 năm tuổi.</p>
-
+    <p class="mb-6">MedDental là hệ thống nha khoa trực thuộc hệ thống y tế tư nhân Medlatec...</p>
     <img src="{{ url_for('static', filename='intro.png') }}" alt="Giới thiệu MedDental" class="mx-auto mb-8 rounded-lg shadow max-w-full"/>
-
-    <p class="mb-6">Hệ thống nha khoa Medlatec - MedDental là đơn vị điều trị nha khoa chuyên sâu và cung cấp các dịch vụ như cấy ghép implant, chỉnh nha, phục hình răng sứ, điều trị các bệnh lý nha khoa từ đơn giản đến phức tạp.</p>
-
-    <p class="mb-6">Đơn vị thường xuyên cập nhật và nhập khẩu một số thiết bị y tế hiện đại như: máy chụp 3D CT Conebeam, máy quét dấu răng Itero 5D, máy phẫu thuật và nhổ răng Osstem SM3, máy phân tích điều chỉnh khớp cắn T–scan... Các thiết bị, dụng cụ y tế tại các cơ sở của MedDental đều áp dụng quy chuẩn vô trùng theo quy trình nghiêm ngặt, nhằm đảm bảo an toàn sức khỏe cho mỗi khách hàng.</p>
-
+    <p class="mb-6">Hệ thống nha khoa Medlatec - MedDental là đơn vị điều trị nha khoa chuyên sâu...</p>
     <img src="{{ url_for('static', filename='gioi-thieu1.png') }}" alt="Cơ sở vật chất MedDental" class="mx-auto mb-8 rounded-lg shadow max-w-full"/>
-
-    <p class="mb-6">Hệ thống nha khoa Medlatec - MedDental luôn đặt mục tiêu hàng đầu là mang tới trải nghiệm tốt nhất cho khách hàng với 4 giá trị cốt lõi là <strong>Y Đức</strong> - <strong>Sự Tận Tâm</strong> - <strong>Sáng Tạo</strong> - <strong>Công Nghệ</strong>.</p>
-
-    <p class="mb-4">Và như một lời cam kết đến từ thương hiệu, MedDental sẽ luôn điều trị, đồng hành để đạt hiệu quả tối ưu nhất cho khách hàng với các mục tiêu được đề ra như từng ngày, tới từng bộ phận - vị trí nhân sự phụ trách:</p>
-
-    <ul class="list-disc text-left pl-8 space-y-2">
-      <li>Mang đến một địa chỉ chăm sóc sức khỏe răng miệng uy tín, chất lượng cao, khắc phục mọi vấn đề của hàm răng bằng công nghệ hiện đại.</li>
-      <li>Đáp ứng được những yếu tố tối quan trọng: Kết quả thẩm mỹ như mong muốn và đặc biệt mang lại cảm giác ăn nhai - tận hưởng cuộc sống hoàn hảo, duy trì bền vững cùng thời gian.</li>
-      <li>Lấy chất lượng và sự hài lòng của khách hàng làm trọng tâm cho mọi chiến lược phát triển.</li>
-    </ul>
   </div>
 </section>
-  <!-- FORM ĐẶT LỊCH -->
-  <section id="datlich" class="max-w-2xl mx-auto bg-white border border-gray-300 rounded-xl shadow-xl p-6 my-8">
-    <h3 class="text-xl font-bold text-blue-900 mb-4">Đặt lịch tư vấn</h3>
-    <form class="space-y-3">
-      <input type="text" placeholder="Họ tên" class="w-full px-4 py-2 border rounded-md" />
-      <input type="tel" placeholder="Điện thoại" class="w-full px-4 py-2 border rounded-md" />
-      <input type="text" placeholder="Địa chỉ" class="w-full px-4 py-2 border rounded-md" />
-      <input type="date" class="w-full px-4 py-2 border rounded-md text-gray-500" />
-      <select class="w-full px-4 py-2 border rounded-md">
-        <option disabled selected>Dịch vụ bạn quan tâm *</option>
-        <option>Khám tổng quát</option>
-        <option>Nhổ răng - Trồng răng</option>
-        <option>Niềng răng - Thẩm mỹ</option>
-      </select>
-      <textarea placeholder="Lời nhắn cho bác sĩ" class="w-full px-4 py-2 border rounded-md"></textarea>
-      <button type="submit" class="bg-blue-900 text-white font-semibold w-full py-2 rounded-md hover:bg-blue-800">ĐẶT LỊCH TƯ VẤN</button>
-    </form>
-  </section>
-  
-<!-- FOOTER -->
-  <footer class="bg-blue-900 text-white text-center py-4 mt-8">
-    &copy; 2025 MedDental. Hotline: 0814419333
-  </footer>
 
-  <script>
-    const SCRIPT_URL = "PASTE_YOUR_SCRIPT_URL_HERE";
-    const form = document.querySelector("#datlich form");
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const inputs = form.querySelectorAll("input, select, textarea");
-      const data = {
-        name: inputs[0].value,
-        phone: inputs[1].value,
-        address: inputs[2].value,
-        date: inputs[3].value,
-        service: inputs[4].value,
-        message: inputs[5].value
-      };
-      try {
-        const res = await fetch(SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-        const result = await res.json();
-        if (result.result === "success") {
-          alert("✔️ Đặt lịch thành công!");
-          form.reset();
-        } else {
-          alert("❌ Gửi thất bại, vui lòng thử lại.");
-        }
-      } catch {
-        alert("⚠️ Lỗi kết nối.");
-      }
-    });
-  </script>
-</body>
-</html>
-  
-<!-- Nút mở Chatbox -->
+<!-- FORM ĐẶT LỊCH -->
+<section id="datlich" class="max-w-2xl mx-auto bg-white border border-gray-300 rounded-xl shadow-xl p-6 my-8">
+  <h3 class="text-xl font-bold text-blue-900 mb-4">Đặt lịch tư vấn</h3>
+  <form class="space-y-3">
+    <input type="text" placeholder="Họ tên" class="w-full px-4 py-2 border rounded-md" />
+    <input type="tel" placeholder="Điện thoại" class="w-full px-4 py-2 border rounded-md" />
+    <input type="text" placeholder="Địa chỉ" class="w-full px-4 py-2 border rounded-md" />
+    <input type="date" class="w-full px-4 py-2 border rounded-md text-gray-500" />
+    <select class="w-full px-4 py-2 border rounded-md">
+      <option disabled selected>Dịch vụ bạn quan tâm *</option>
+      <option>Khám tổng quát</option>
+      <option>Nhổ răng - Trồng răng</option>
+      <option>Niềng răng - Thẩm mỹ</option>
+    </select>
+    <textarea placeholder="Lời nhắn cho bác sĩ" class="w-full px-4 py-2 border rounded-md"></textarea>
+    <button type="submit" class="bg-blue-900 text-white font-semibold w-full py-2 rounded-md hover:bg-blue-800">ĐẶT LỊCH TƯ VẤN</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-blue-900 text-white text-center py-4 mt-8">
+  &copy; 2025 MedDental. Hotline: 0814419333
+</footer>
+
+<!-- CHAT BUTTON -->
 <lottie-player
   src="https://lottie.host/9ce13ba8-6202-4780-a58e-2e5917dc40f6/cS2UwBeU95.json"
   background="transparent"
@@ -159,15 +106,41 @@
   loop autoplay onclick="toggleChat()">
 </lottie-player>
 
- <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center py-6 text-sm">
-    <p>&copy; 2025 MedDental. Liên Hệ Đặt Lịch 0814 419 333</p>
-  </footer>
-
 <script>
   function toggleChat() {
     const chatbox = document.getElementById("chatbox");
     chatbox.classList.toggle("hidden");
   }
+  const SCRIPT_URL = "PASTE_YOUR_SCRIPT_URL_HERE";
+  const form = document.querySelector("#datlich form");
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const inputs = form.querySelectorAll("input, select, textarea");
+    const data = {
+      name: inputs[0].value,
+      phone: inputs[1].value,
+      address: inputs[2].value,
+      date: inputs[3].value,
+      service: inputs[4].value,
+      message: inputs[5].value
+    };
+    try {
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      if (result.result === "success") {
+        alert("✔️ Đặt lịch thành công!");
+        form.reset();
+      } else {
+        alert("❌ Gửi thất bại, vui lòng thử lại.");
+      }
+    } catch {
+      alert("⚠️ Lỗi kết nối.");
+    }
+  });
 </script>
-
+</body>
+</html>
