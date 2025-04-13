@@ -2,26 +2,124 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Răng sứ thẩm mỹ | MedDental</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <header class="bg-blue-900 text-white p-4 text-center">
-    <h1 class="text-2xl font-bold">Răng sứ thẩm mỹ</h1>
+<body class="bg-white text-gray-900">
+  <!-- HEADER FULL -->
+  <header class="bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+      <div class="flex items-center gap-3">
+        <img src="meddental-chatbot/static/logo.jpg" alt="MedDental Logo" class="h-12 w-auto">
+        <span class="text-xl font-bold text-blue-800">MEDDENTAL</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="relative">
+          <input type="text" placeholder="Tìm kiếm" class="border border-gray-300 rounded-full px-4 py-1 text-sm focus:outline-none">
+          <i class="fas fa-search absolute right-3 top-2 text-gray-400"></i>
+        </div>
+        <div class="text-sm text-gray-800 flex items-center gap-2">
+          <i class="fas fa-phone text-blue-600"></i>
+          <div>
+            <p class="text-xs text-gray-500">Hotline</p>
+            <p class="font-semibold">0985018688</p>
+          </div>
+        </div>
+        <div class="text-sm text-gray-800 flex items-center gap-2">
+          <i class="fas fa-comment-dots text-blue-600"></i>
+          <div>
+            <p class="text-xs text-gray-500">Liên hệ</p>
+            <p class="font-semibold">Hỗ trợ khách hàng</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="bg-white border-t border-gray-200 text-sm text-gray-800 px-4 py-2">
+      <div class="max-w-7xl mx-auto flex gap-6">
+        <a href="index.html" class="hover:text-blue-700 font-medium"><i class="fas fa-home"></i> Giới thiệu</a>
+        <a href="rang-su.html" class="hover:text-blue-700">Nha khoa thẩm mỹ</a>
+        <a href="nho-rang.html" class="hover:text-blue-700">Nha khoa tổng quát</a>
+        <a href="#" class="hover:text-blue-700">Sản phẩm</a>
+        <a href="#" class="hover:text-blue-700">Bảng giá</a>
+        <a href="#" class="hover:text-blue-700">Khách hàng</a>
+        <a href="#" class="hover:text-blue-700">Tin tức</a>
+        <a href="#" class="hover:text-blue-700">Tuyển dụng</a>
+        <a href="#" class="hover:text-blue-700">Liên hệ</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-8">
-    <p class="text-gray-700 mb-6">
-      Răng sứ giúp tái tạo hình dáng, màu sắc răng đẹp hơn với độ bền cao, an toàn và thẩm mỹ tự nhiên, khôi phục nụ cười tự tin.
+  <!-- NỘI DUNG RĂNG SỨ -->
+  <section class="max-w-4xl mx-auto py-8 px-4 text-center">
+    <h1 class="text-3xl font-bold text-blue-900 mb-4">Răng sứ thẩm mỹ MedDental</h1>
+    <p class="mb-6">
+      Bọc răng sứ tại MedDental là giải pháp thẩm mỹ an toàn, hiệu quả cho các trường hợp răng thưa, mẻ, nhiễm màu hay hình thể xấu. MedDental ứng dụng các dòng sứ cao cấp như Emax, Cercon, Lava 3M,... giúp đảm bảo tính thẩm mỹ, độ bền cao và không gây đen viền nướu.
     </p>
+    <ul class="text-left list-disc pl-8 mb-6 text-gray-700">
+      <li>Thiết kế dáng răng theo gương mặt</li>
+      <li>Chất liệu toàn sứ – an toàn sinh học</li>
+      <li>Dán sứ veneer bảo tồn tối đa mô răng</li>
+    </ul>
+    <img src="meddental-chatbot/static/rang-su.jpg" alt="Bọc răng sứ thẩm mỹ" class="rounded-lg shadow mx-auto mb-6">
+  </section>
 
-    <a href="/#lienhe" class="inline-block bg-blue-900 text-white px-6 py-3 rounded hover:bg-blue-800">
-      Đặt lịch ngay
-    </a>
-  </main>
+  <!-- FORM ĐẶT LỊCH -->
+  <section id="datlich" class="max-w-2xl mx-auto bg-white border border-gray-300 rounded-xl shadow-xl p-6 my-8">
+    <h3 class="text-xl font-bold text-blue-900 mb-4">Đặt lịch tư vấn</h3>
+    <form class="space-y-3">
+      <input type="text" placeholder="Họ tên" class="w-full px-4 py-2 border rounded-md" />
+      <input type="tel" placeholder="Điện thoại" class="w-full px-4 py-2 border rounded-md" />
+      <input type="text" placeholder="Địa chỉ" class="w-full px-4 py-2 border rounded-md" />
+      <input type="date" class="w-full px-4 py-2 border rounded-md text-gray-500" />
+      <select class="w-full px-4 py-2 border rounded-md">
+        <option disabled selected>Dịch vụ bạn quan tâm *</option>
+        <option>Khám tổng quát</option>
+        <option>Nhổ răng - Trồng răng</option>
+        <option>Niềng răng - Thẩm mỹ</option>
+      </select>
+      <textarea placeholder="Lời nhắn cho bác sĩ" class="w-full px-4 py-2 border rounded-md"></textarea>
+      <button type="submit" class="bg-blue-900 text-white font-semibold w-full py-2 rounded-md hover:bg-blue-800">ĐẶT LỊCH TƯ VẤN</button>
+    </form>
+  </section>
 
+  <!-- FOOTER -->
   <footer class="bg-blue-900 text-white text-center py-4 mt-8">
-    &copy; 2025 MedDental Đặt Lịch: 081.441.9333
+    &copy; 2025 MedDental. Hotline: 0814419333
   </footer>
+
+  <script>
+    const SCRIPT_URL = "PASTE_YOUR_SCRIPT_URL_HERE";
+    const form = document.querySelector("#datlich form");
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const inputs = form.querySelectorAll("input, select, textarea");
+      const data = {
+        name: inputs[0].value,
+        phone: inputs[1].value,
+        address: inputs[2].value,
+        date: inputs[3].value,
+        service: inputs[4].value,
+        message: inputs[5].value
+      };
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.result === "success") {
+          alert("✔️ Đặt lịch thành công!");
+          form.reset();
+        } else {
+          alert("❌ Gửi thất bại, vui lòng thử lại.");
+        }
+      } catch {
+        alert("⚠️ Lỗi kết nối.");
+      }
+    });
+  </script>
 </body>
 </html>
